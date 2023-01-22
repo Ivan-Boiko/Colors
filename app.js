@@ -10,7 +10,18 @@ function generateRandomColor () {
     return "#" + color;
 }
 
+document.addEventListener('click', ev => {
+    const type = ev.target.dataset.type;
 
+    if(type === "lock"){ 
+        const node = ev.target.tagName.toLowerCase() === "i"
+        ? ev.target
+        : ev.target.children[0]
+
+        node.classList.toggle("fa-lock-open")
+        node.classList.toggle("fa-lock")
+    }
+})
 
 function setRandomColors() {
     cols.forEach(col => {
